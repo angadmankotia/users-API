@@ -10,7 +10,6 @@ using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ----- Configuration (for demo keep here) -----
 var jwtKey = builder.Configuration["Jwt:Key"] ?? "ThisIsADemoSecretKey_change_in_prod";
 var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? "UsersApiDemo";
 var jwtAudience = builder.Configuration["Jwt:Audience"] ?? "UsersApiClients";
@@ -228,4 +227,5 @@ public class AppDbContext : DbContext
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
     public DbSet<User> Users { get; set; } = default!;
 }
+
 
