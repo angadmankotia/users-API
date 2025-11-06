@@ -34,7 +34,7 @@ dotnet run
 
 
 Then open:
-👉 https://localhost:7243/swagger
+👉 https://localhost:5242/swagger
 
 🧩 Endpoints
 Method	Endpoint	Auth	Description
