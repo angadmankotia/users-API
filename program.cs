@@ -1,28 +1,3 @@
-// ASP.NET Core 7 Minimal API - Fully Functional Users API
-// File: Program.cs
-// ---------------------------------------------------------
-// Features included:
-// - CRUD endpoints for User: GET (all, by id), POST, PUT, DELETE
-// - EF Core with SQLite (persistent file `users.db`)
-// - Validation using DataAnnotations + manual checks
-// - Middleware: Request logging middleware and JWT authentication
-// - Simple token-based login (for demo) to obtain JWT
-// - Swagger UI for quick testing
-//
-// Run instructions (from command line):
-// 1. dotnet new web -o UsersApi
-// 2. cd UsersApi
-// 3. Replace Program.cs with this file contents
-// 4. Add packages:
-//    dotnet add package Microsoft.EntityFrameworkCore.Sqlite
-//    dotnet add package Microsoft.EntityFrameworkCore.Tools
-//    dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
-//    dotnet add package Swashbuckle.AspNetCore
-// 5. dotnet run
-// 6. Open: https://localhost:7243/swagger (port may vary)
-//
-// NOTE: This file is intentionally self-contained to be easy to drop in.
-// For production: store JWT secrets safely, use migrations instead of EnsureCreated(), add stronger hashing for passwords, secure CORS, rate limiting, etc.
 
 using System.ComponentModel.DataAnnotations;
 using System.IdentityModel.Tokens.Jwt;
@@ -175,7 +150,6 @@ app.MapDelete("/users/{id:int}", async (int id, AppDbContext db) =>
 
 app.Run();
 
-// ---------------------- Helpers & Models ----------------------
 
 string GenerateJwt(string email)
 {
@@ -254,3 +228,4 @@ public class AppDbContext : DbContext
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
     public DbSet<User> Users { get; set; } = default!;
 }
+
